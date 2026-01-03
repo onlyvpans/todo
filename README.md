@@ -46,7 +46,7 @@ npm install
 npm run dev
 ```
 
-🧪 Tests
+## 🧪 Tests
 
 - None.
 - I tested it by:
@@ -54,7 +54,7 @@ npm run dev
   - Clicking things
   - Saying “yeah that works”
 
-📌 Final Thoughts
+## 📌 Final Thoughts
 
 This app will not change the world.
 But it does prove I can:
