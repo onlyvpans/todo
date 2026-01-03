@@ -1,5 +1,5 @@
 import React from "react";
 
-export function TodoInput() {
+export function Header() {
   return <header></header>;
 }
