@@ -3,6 +3,7 @@ interface TodoCardProps {
   complete: boolean;
   index: number;
   handleDeleteTodo: (removedIndex: number) => void;
+  handleMarkCompleted: (completedIndex: number) => void;
 }
 
 export function TodoCard({
@@ -10,12 +11,21 @@ export function TodoCard({
   complete,
   index,
   handleDeleteTodo,
+  handleMarkCompleted,
 }: TodoCardProps) {
+  // if done is pressed, then handleMarkComplete should run
+  // setState[] of complete: true
+
   return (
     <div className="card todo-item">
       <p>{input}</p>
       <div>
-        <button disabled={complete}>
+        <button
+          disabled={complete}
+          onClick={() => {
+            handleMarkCompleted(index);
+          }}
+        >
           <h6>Done</h6>
         </button>
         <button
