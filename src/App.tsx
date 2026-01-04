@@ -6,6 +6,9 @@ import { TodoContext } from "./contexts/TodoContext";
 import { useState } from "react";
 
 export default function App() {
+  type tabEnum = "All" | "Open" | "Completed";
+
+  const [selectedTab, setSelectedTab] = useState<tabEnum>("All");
   interface todoInterface {
     input: string;
     complete: boolean;
@@ -24,14 +27,15 @@ export default function App() {
     setTodos(newTodoList);
   }
 
-  // function handleEditTodo() {}
-
   return (
     <>
       <TodoContext.Provider value={todos}>
         <Header />
-        <Tabs />
-        <TodoList handleDeleteTodo={handleDeleteTodo} />
+        <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+        <TodoList
+          handleDeleteTodo={handleDeleteTodo}
+          selectedTab={selectedTab}
+        />
         <TodoInput handleAddTodo={handleAddTodo} />
       </TodoContext.Provider>
     </>

@@ -2,20 +2,20 @@ import { TodoCard } from "./TodoCard";
 import { TodoContext } from "../contexts/TodoContext";
 import { useContext } from "react";
 
-interface todoListProp {
-  handleDeleteTodo: (removedIndex: number) => void;
-}
-export function TodoList({ handleDeleteTodo }: todoListProp) {
-  // const [todolist, setTodoList] = useState([]);
+type tabEnum = "All" | "Open" | "Completed";
 
+interface TodoListProp {
+  handleDeleteTodo: (removedIndex: number) => void;
+  selectedTab: tabEnum;
+}
+
+export function TodoList({ handleDeleteTodo, selectedTab }: TodoListProp) {
   const todos = useContext(TodoContext);
 
-  const tab = "All";
-
   const filterTodosList =
-    tab === "All"
+    selectedTab === "All"
       ? todos
-      : tab === "open"
+      : selectedTab === "Open"
       ? todos.filter((val) => !val.complete)
       : todos.filter((val) => val.complete);
 
