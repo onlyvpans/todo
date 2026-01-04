@@ -4,12 +4,18 @@ import { useContext } from "react";
 
 type tabEnum = "All" | "Open" | "Completed";
 
+// chuck in useContext
 interface TodoListProp {
   handleDeleteTodo: (removedIndex: number) => void;
+  handleMarkCompleted: (completedIndex: number) => void;
   selectedTab: tabEnum;
 }
 
-export function TodoList({ handleDeleteTodo, selectedTab }: TodoListProp) {
+export function TodoList({
+  handleDeleteTodo,
+  selectedTab,
+  handleMarkCompleted,
+}: TodoListProp) {
   const todos = useContext(TodoContext);
 
   const filterTodosList =
@@ -24,6 +30,7 @@ export function TodoList({ handleDeleteTodo, selectedTab }: TodoListProp) {
       {filterTodosList.map((todo, todoIndex) => {
         return (
           <TodoCard
+            handleMarkCompleted={handleMarkCompleted}
             handleDeleteTodo={handleDeleteTodo}
             index={todoIndex}
             key={todoIndex}
