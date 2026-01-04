@@ -18,7 +18,9 @@ export function TodoInput({ handleAddTodo }: handleToDoProp) {
       />
       <button
         onClick={() => {
-          handleAddTodo(inputValue);
+          if (inputValue) {
+            handleAddTodo(inputValue);
+          }
         }}
       >
         <i className="fa-solid fa-plus"></i>
