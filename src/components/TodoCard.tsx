@@ -20,14 +20,16 @@ export function TodoCard({
     <div className="card todo-item">
       <p>{input}</p>
       <div>
-        <button
-          disabled={complete}
-          onClick={() => {
-            handleMarkCompleted(index);
-          }}
-        >
-          <h6>Done</h6>
-        </button>
+        {!complete && (
+          <button
+            disabled={complete}
+            onClick={() => {
+              handleMarkCompleted(index);
+            }}
+          >
+            <h6>Done</h6>
+          </button>
+        )}
         <button
           onClick={() => {
             handleDeleteTodo(index);
