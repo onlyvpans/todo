@@ -18,6 +18,12 @@ export default function App() {
     setTodos(newTodolist);
   }
 
+  function handleDeleteTodo(removedIndex: number) {
+    const newTodoList = todos.filter((_, i) => i !== removedIndex);
+
+    setTodos(newTodoList);
+  }
+
   // function handleEditTodo() {}
 
   return (
@@ -25,7 +31,7 @@ export default function App() {
       <TodoContext.Provider value={todos}>
         <Header />
         <Tabs />
-        <TodoList />
+        <TodoList handleDeleteTodo={handleDeleteTodo} />
         <TodoInput handleAddTodo={handleAddTodo} />
       </TodoContext.Provider>
     </>
