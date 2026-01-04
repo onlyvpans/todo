@@ -3,14 +3,22 @@ import { Tabs } from "./components/Tabs";
 import { TodoInput } from "./components/TodoInput";
 import { TodoList } from "./components/TodoList";
 import { TodoContext } from "./contexts/TodoContext";
+import { useState } from "react";
 
 export default function App() {
-  const todos = [
-    { input: "Get a dog", complete: true },
-    { input: "Name the dog", complete: true },
-    { input: "Feed Toastie", complete: true },
-    { input: "Pet Toastie", complete: true },
-  ];
+  interface todoInterface {
+    input: string;
+    complete: boolean;
+  }
+
+  const [todos, setTodos] = useState<todoInterface[]>([]);
+
+  function handleAddTodo(newTodo: string) {
+    const newTodolist = [...todos, { input: newTodo, complete: false }];
+    setTodos(newTodolist);
+  }
+
+  // function handleEditTodo() {}
 
   return (
     <>
@@ -18,7 +26,7 @@ export default function App() {
         <Header />
         <Tabs />
         <TodoList />
-        <TodoInput />
+        <TodoInput handleAddTodo={handleAddTodo} />
       </TodoContext.Provider>
     </>
   );
