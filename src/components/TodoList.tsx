@@ -2,7 +2,10 @@ import { TodoCard } from "./TodoCard";
 import { TodoContext } from "../contexts/TodoContext";
 import { useContext } from "react";
 
-export function TodoList() {
+interface todoListProp {
+  handleDeleteTodo: (removedIndex: number) => void;
+}
+export function TodoList({ handleDeleteTodo }: todoListProp) {
   // const [todolist, setTodoList] = useState([]);
 
   const todos = useContext(TodoContext);
@@ -19,7 +22,14 @@ export function TodoList() {
   return (
     <>
       {filterTodosList.map((todo, todoIndex) => {
-        return <TodoCard key={todoIndex} {...todo}></TodoCard>;
+        return (
+          <TodoCard
+            handleDeleteTodo={handleDeleteTodo}
+            index={todoIndex}
+            key={todoIndex}
+            {...todo}
+          ></TodoCard>
+        );
       })}
     </>
   );
