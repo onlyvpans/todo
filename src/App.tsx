@@ -36,7 +36,10 @@ export default function App() {
           handleDeleteTodo={handleDeleteTodo}
           selectedTab={selectedTab}
         />
-        <TodoInput handleAddTodo={handleAddTodo} />
+        {selectedTab === "All" ||
+          (selectedTab === "Open" && (
+            <TodoInput handleAddTodo={handleAddTodo} />
+          ))}
       </TodoContext.Provider>
     </>
   );
