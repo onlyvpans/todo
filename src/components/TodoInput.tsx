@@ -6,7 +6,6 @@ interface handleToDoProp {
 export function TodoInput({ handleAddTodo }: handleToDoProp) {
   const [inputValue, setInputValue] = useState("");
 
-  console.log(inputValue);
   return (
     <div className="input-container">
       <input
@@ -20,6 +19,7 @@ export function TodoInput({ handleAddTodo }: handleToDoProp) {
         onClick={() => {
           if (inputValue) {
             handleAddTodo(inputValue);
+            setInputValue("");
           }
         }}
       >
