@@ -9,12 +9,12 @@ export default function App() {
   type tabEnum = "All" | "Open" | "Completed";
 
   const [selectedTab, setSelectedTab] = useState<tabEnum>("All");
-  interface todoInterface {
+  interface TodoInterface {
     input: string;
     complete: boolean;
   }
 
-  const [todos, setTodos] = useState<todoInterface[]>([]);
+  const [todos, setTodos] = useState<TodoInterface[]>([]);
 
   function handleAddTodo(newTodo: string) {
     const newTodolist = [...todos, { input: newTodo, complete: false }];

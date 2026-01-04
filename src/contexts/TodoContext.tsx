@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
-interface todoItem {
+interface TodoItem {
   input: string;
   complete: boolean;
 }
 
-export const TodoContext = createContext<todoItem[]>([]);
+export const TodoContext = createContext<TodoItem[]>([]);

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-interface handleToDoProp {
+interface HandleToDoProp {
   handleAddTodo: (newTodo: string) => void;
 }
-export function TodoInput({ handleAddTodo }: handleToDoProp) {
+export function TodoInput({ handleAddTodo }: HandleToDoProp) {
   const [inputValue, setInputValue] = useState("");
 
   return (
