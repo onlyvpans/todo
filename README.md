@@ -37,8 +37,6 @@ This is my contribution to the **TODO App Industrial Complex™**.
 
 ---
 
-## 📸 Screenshot (imagine one)
-
 ## 🚀 Getting Started
 
 ```bash
