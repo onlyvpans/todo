@@ -4,7 +4,7 @@ import { TodoContext } from "../contexts/TodoContext";
 export default function Header() {
   const todos = useContext(TodoContext);
 
-  const todosLength = todos.length;
+  const todosLength = todos.filter((todo) => todo.complete === false).length;
   const isTaskPlural = todosLength != 1;
 
   return (
